@@ -1,0 +1,131 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --animation1: translation1;
+  --animation2: translation2;
+}
+body {
+  background-color: rgb(0, 58, 39);
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  margin: 10px 0;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(144, 238, 144);
+  font: 64px sans-serif;
+  height: 30vh;
+  width: calc(25% - 2vw + 0.1px); /*-2vw to adjust the margins and +0.1px to have just three in each row*/
+  margin: 0 1vw;
+}
+
+div:nth-child(-n + 3),
+div:nth-child(n + 7):nth-child(-n + 9) {
+  animation: 3s infinite var(--animation1);
+}
+div:nth-child(n + 4):nth-child(-n + 6),
+div:nth-child(n + 10):nth-child(-n + 12) {
+  animation: 3s infinite var(--animation2);
+}
+
+@keyframes translation1 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(100% + 2vw));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes translation2 {
+  0% {
+    transform: translateX(calc(100% + 2vw));
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100% + 2vw));
+  }
+}
+@keyframes translation3 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(100% + 2vw));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes translation4 {
+  0% {
+    transform: translateX(calc(100% + 2vw));
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100% + 2vw));
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --animation1: translation3;/*To redefine --animation1 so that when screen size changes the animation property refreshes and things don't get unsynchronized*/
+    --animation2: translation4;
+  }
+  div {
+    width: calc((100% / 3) - 2vw + 0.1px);
+  }
+  div:nth-child(-n + 2),
+  div:nth-child(n + 5):nth-child(-n + 6),
+  div:nth-child(n + 9):nth-child(-n + 10) {
+    animation: 3s infinite var(--animation1);
+  }
+  div:nth-child(n + 3):nth-child(-n + 4),
+  div:nth-child(n + 7):nth-child(-n + 8),
+  div:nth-child(n + 11):nth-child(-n + 12) {
+    animation: 3s infinite var(--animation2);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --animation1: translation1;
+    --animation2: translation2;
+  }
+  div {
+    width: calc(50% - 2vw + 0.1px);
+  }
+
+  div:nth-child(odd) {
+    animation: 3s infinite var(--animation1) !important;
+  }
+  div:nth-child(even) {
+    animation: 3s infinite var(--animation2) !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  div {
+    width: 100%;
+    margin: 0 20px;
+  }
+  div:nth-child(odd),
+  div:nth-child(even) {
+    animation: none !important;
+  }
+}
