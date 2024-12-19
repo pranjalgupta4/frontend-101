@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: bisque;
+}
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 500px);
+  margin: 100px;
+  border: 2px solid black;
+}
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FIRST BUTTON */
+#first {
+  margin: 100px auto;
+  transform-style: preserve-3d; /* Preserving the 3d nature of its child (they are now placed in 3d space) */
+  transform-origin: 75px 50% 37.5px; /* Changing the origin to make the axis edge of box */
+  transition: transform 0.7s;
+  transform: perspective(400px) rotateY(-35deg); /* Perspective is dist btw user and image , used to give a more natural 3d view */
+}
+#first div {
+  height: 50px;
+  background-color: red;
+  border: 2px solid black;
+}
+#first:hover {
+  transform: rotateY(0deg);
+}
+
+#front1 {
+  width: 150px;
+  font-size: 2rem;
+  transform: translateZ(37.5px); /* Lifting it out of plane to make a box */
+}
+#left1 /* left wall is added to make a real box and understand the view better */ {
+  width: 75px;
+  opacity: 0;
+  transform: translateX(37.5px) rotateY(-90deg);
+}
+#right1 {
+  width: 75px;
+  transform: translateX(-37.5px) rotateY(90deg);
+}
+
+/* SECOND BUTTON */
+#second {
+  margin: auto;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(700px) rotateX(-8deg) rotateY(-30deg);
+  transition: transform 0.5s;
+}
+#second div {
+  background-color: red;
+  border: 2px solid black;
+  transition: transform 0.5s;
+}
+#second:hover div {
+  transform: translateZ(-37.5px) rotate3d(0, 0, 0, 0deg);
+}
+
+
+#top {
+  height: 75px;
+  position: absolute;
+  width: 150px;
+  top: -75px;
+  transform: translateZ(75px) rotateX(90deg);
+  transform-origin: 0 75px 0; /* Origin transformed everywhere to open the box like actually from the edges otherwise it was rotating from the middle axis */
+}
+#left {
+  height: 50px;
+  width: 75px;
+  transform: translateZ(75px) rotateY(-90deg);
+  transform-origin: 75px 0 0;
+}
+#front {
+  height: 50px;
+  width: 150px;
+  font-size: 2rem;
+  transform: translateZ(75px);
+}
+#right {
+  height: 50px;
+  width: 75px;
+  transform: translateZ(75px) rotateY(90deg);
+  transform-origin: 0 0 0;
+}
+#bottom {
+  height: 75px;
+  position: absolute;
+  width: 150px;
+  bottom: -75px;
+  transform: translateZ(75px) rotateX(-90deg);
+  transform-origin: 0 0 0;
+}
