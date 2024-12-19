@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body,
+main {
+  background-color: wheat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+main {
+  height: 50vh;
+  width: 50vh;
+  position: relative;
+}
+.box {
+  position: absolute;
+  height: 25vh;
+  width: 25vh;
+  transition: transform 0.5s;
+}
+
+main:hover #red,
+main:hover #green {
+  transform: rotate(90deg);
+}
+main:hover #yellow,
+main:hover #blue {
+  transform: rotate(-90deg);
+}
+
+#red {
+  background-color: red;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+}
+#yellow {
+  background-color: yellow;
+  top: 0;
+  right: 0;
+  transform-origin: 100% 0;
+}
+#blue {
+  background-color: blue;
+  bottom: 0;
+  left: 0;
+  transform-origin: 0 100%;
+}
+#green {
+  background-color: green;
+  bottom: 0;
+  right: 0;
+  transform-origin: 100% 100%;
+}
+
+#text {
+  font-size: 5rem;
+}
