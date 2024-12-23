@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "DVMLogify",
+  "version": "1.0",
+  "description": "Notifies whenever you visit one of DVM's Website",
+
+  "action": {
+    "default_icon": "icon.jpg",
+    "default_text": "DVMLogify"
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "permissions": ["notifications", "tabs"],
+  "host_permissions": [
+    "https://www.bits-apogee.org//*",
+    "https://www.bits-oasis.org//*",
+    "https://www.bits-bosm.org/*"
+  ]
+}
