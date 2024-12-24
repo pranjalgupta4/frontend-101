@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitGram</title>
+    <link rel="stylesheet" href="Task-B-2.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h3>GitGram</h3>
+        <p>Discover GitHub Profiles Instantly</p>
+        <img src="img/search2.png" class="hidden" id="header-icon" alt="" name="img"/>
+      </header>
+      <div class="main">
+        <div id="profile-onsearch" class="hidden">
+          <img src="" id="onsearch-pic" alt="" />
+          <h3 id="onsearch-name"></h3>
+          <a id="onsearch-username"></a>
+          <p id="onsearch-bio"></p>
+        </div>
+        <div class="search-profile" id="search-profile">
+          <img src="img/profile pic.png" alt="" />
+          <div>
+            <input type="text" placeholder="Search Profile" id="input" />
+            <p class="error not-visible">*User not found</p>
+          </div>
+          <button id="button">Search</button>
+        </div>
+      </div>
+      <img id="history-icon" src="img/history.png" alt="" />
+      <div id="history" class="hidden history-hidden">
+        <h3>History <img src="img/cancel.png" alt="" id="close-history" /></h3>
+        <ul id="history-list"></ul>
+        <p id="clear-all">Clear All</p>
+      </div>
+    </main>
+    <script src="Task-B-2.js"></script>
+  </body>
+</html>
