@@ -29,19 +29,14 @@ div {
 }
 
 .collection {
-  display: grid;
-  grid-template-columns: repeat(var(--columns), minmax(auto, 20vw));
-  gap: min(3px);
+  display: flex;
   justify-content: space-evenly;
   width: 95vw;
   position: absolute;
-  transition: transform 1s ease;
+  transition: transform 1s ease-in-out;
 }
 
 .card {
-  box-sizing: border-box;
-  font-size: inherit;
-  font-family: Arial, Helvetica, sans-serif;
   aspect-ratio: 1 / 1.4;
   background-color: #025f3ddd;
   border-radius: 10%;
@@ -65,6 +60,6 @@ div {
   transition: background-color 1s ease-in-out;
   background-color: transparent;
 }
-.circle:hover{
+.circle:hover {
   cursor: pointer;
 }

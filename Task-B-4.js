@@ -28,7 +28,7 @@ for (let i = 1; i <= num_collection; i++) {
   // Creation of Collection boxes
   let ele = document.createElement("div");
   ele.classList.add("collection");
-  ele.style.transform = `translateX(calc(${x_coord}%))`;
+  ele.style.transform = `translateX(${x_coord}%)`;
   ele.id = `coll${i}`;
 
   x_coord += 100;
@@ -37,29 +37,16 @@ for (let i = 1; i <= num_collection; i++) {
   while (num <= num2) {
     let card = document.createElement("div");
     card.classList.add("card");
-    card.innerHTML = num < 10 ? "0" + num : num;
+    card.innerHTML = num;
+    card.style.width = card_num > 9 ? `${90 / card_num}vw` : "10vw";
+    card.style.fontSize = card_num > 9 ? `${63 / card_num}vw` : "7vw";
     ele.appendChild(card);
     num++;
   }
   num2 += card_num;
   if (i == num_collection - 1) num2 = tot_card_num;
 
-  if (i == num_collection && i != 1) {
-    ele.style.display = "flex";
-    Array.from(ele.children).forEach((item) => {
-      item.style.width = window
-        .getComputedStyle(document.getElementById("coll1").children[0])
-        .getPropertyValue("width");
-      item.style.flex = "none";
-    });
-  }
   main.appendChild(ele);
-  if (card_num < 15) {
-    document.getElementById(`coll${i}`).style.gap = `20px`;
-  }
-  document.getElementById(`coll${i}`).style.fontSize = `calc(${window
-    .getComputedStyle(document.getElementById("coll1").children[0])
-    .getPropertyValue("height")} * 0.5)`;
 
   // Creation of Scroll dots
   let dot = document.createElement("span");
@@ -83,7 +70,7 @@ function slider() {
     for (let i = 1; i <= num_collection; i++) {
       document.getElementById(
         `coll${i}`
-      ).style.transform = `translateX(calc(${x_coord2}%))`;
+      ).style.transform = `translateX(${x_coord2}%)`;
       document.getElementById(i).style.backgroundColor = "transparent";
       x_coord2 += 100;
     }
